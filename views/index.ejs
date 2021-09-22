@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <form method="POST">
+      <input
+        id="scantext"
+        name="scantext"
+        required
+        type="text"
+        placeholder="Insert text for scan"
+      />
+      <button type="submit">Scan</button>
+    </form>
+    <% if(scanresults){ %>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>TimeStamp</th>
+          <th>URL</th>
+          <th>Keyword</th>
+          <th>Found (1 if yes, 0 if not)</th>
+        </tr>
+      </thead>
+      <tbody id="lecturesTableData">
+        <% if(scanresults.length){ %> <% for(let i = 0; i < scanresults.length; i++) {
+        %>
+        <tr>
+          <td><%=scanresults[i].scan_id%></td>
+          <td><%=scanresults[i].timestamp%></td>
+          <td><%=scanresults[i].url%></td>
+          <td><%=scanresults[i].keyword%></td>
+          <td><%=scanresults[i].found%></td>
+        </tr>
+        <% } %> <% }else{ %>
+        <tr>
+          <td>No Results found</td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+    <% } %>
+  </body>
+</html>
