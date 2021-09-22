@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "./bin/www",
+    "start:dev": "nodemon ./bin/www",
     "lint": "npx eslint '**/*.js' --ignore-pattern node_modules/",
     "lint:fix": "npx eslint '**/*.js' --ignore-pattern node_modules/ --fix"
   },
